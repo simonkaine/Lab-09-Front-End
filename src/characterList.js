@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { getCharacters } from './fetch-utils';
+import { Link } from 'react-router-dom';
 
 class CharacterList extends Component {
     state = { characters: [] }
@@ -11,11 +12,13 @@ class CharacterList extends Component {
         return ( 
             <>
             <h1>List Of Characters</h1>
-            <div className="list-of-characters"> 
                 {this.state.characters.map((char) =>
-                <h3>{char.name}</h3>
+                    <div className="list-of-characters"> 
+                    <h3>
+                        <Link to={`/characters/${char.id}`}>{char.name}</Link>
+                    </h3>
+                    </div>
                 )}
-            </div>
             </>
          );
     }
