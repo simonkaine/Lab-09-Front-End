@@ -22,7 +22,7 @@ export const updateCharacter = async (charObject) => {
     const resp = await fetch(`${URL}/characters/${charObject.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'appllication/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(charObject),
     });

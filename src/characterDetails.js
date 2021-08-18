@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { getCharacter, getBreeds } from './fetch-utils';
+import { getCharacter, getBreeds, updateCharacter } from './fetch-utils';
 
 class CharacterDetails extends Component {
     state = { id: 0, name: '', bad: false, species: '' }
@@ -10,6 +10,30 @@ class CharacterDetails extends Component {
         const speciesData = await getBreeds();
         this.setState({ ...characterData, speciesData });
         console.log(this.state)
+    }
+
+    getSpeciesId = () => {
+        // get species id by mapping through speciesData, return it, use in handleclick
+        const speciesObject = this.state.speciesData.find(
+            (nw) => nw.name === this.state.species
+        );
+        return speciesObject.id;
+    }
+
+    handleClickEvent = async (e) => {
+        e.preventDefault()
+        // get the species_id from the list of breeds + enter it as value into new data set
+        // gather up all my new species data from state
+        // use 
+        console.log(this.state.id)
+        const newCharacterData = {
+            id: this.state.id,
+            name: this.state.name,
+            bad: this.state.bad, 
+            species_id: this.getSpeciesId() 
+        };
+        console.log(newCharacterData)
+        await updateCharacter(newCharacterData);
     }
 
     render() { 
@@ -49,6 +73,8 @@ class CharacterDetails extends Component {
                                 <option value="martian">Martian</option>
                             </select>
                     </div>
+
+                    <button onClick={this.handleClickEvent}>Submit!</button>
 
                 </form>
             </>
