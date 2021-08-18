@@ -1,12 +1,13 @@
 import { Component } from 'react';
-import { getCharacter } from './fetch-utils';
+import { getCharacter, getBreeds } from './fetch-utils';
 
 class CharacterDetails extends Component {
-    state = { id: 0, name: '', bad: true }
+    state = { id: 0, name: '', bad: Boolean, species: '' }
     componentDidMount = async () => {
         const characterId = this.props.match.params.id;
         const characterData = await getCharacter(characterId);
-        this.setState({ ...characterData });
+        const speciesData = await getBreeds();
+        this.setState({ ...characterData, speciesData });
     }
     render() { 
         return ( 
@@ -25,6 +26,18 @@ class CharacterDetails extends Component {
                         </select>
                         
                     </div>
+
+                    <div className="details-data">
+                        <label>Species: </label>
+                            <select onChange={(e) => {
+                                this.setState({ species: e.target.value }); 
+                                }} value={this.state.species}>
+                                <option value="human">Human</option>
+                                <option value="plutonian">Plutonian</option>
+                                <option value="martian">Martian</option>
+                            </select>
+                    </div>
+
                 </form>
             </>
          );
