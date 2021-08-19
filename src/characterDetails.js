@@ -15,7 +15,7 @@ class CharacterDetails extends Component {
     getSpeciesId = () => {
         // get species id by mapping through speciesData, return it, use in handleclick
         const speciesObject = this.state.speciesData.find(
-            (nw) => nw.name === this.state.species
+            (breed) => breed.name === this.state.species
         );
         return speciesObject.id;
     }

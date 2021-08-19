@@ -29,3 +29,15 @@ export const updateCharacter = async (charObject) => {
     const data = await resp.json();
     return data;
 };
+
+export const createCharacters = async (charObject) => {
+    const resp = await fetch(`${URL}/characters/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(charObject),
+    });
+    const data = await resp.json();
+    return data;
+};

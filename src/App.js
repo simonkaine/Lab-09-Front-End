@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import CreateCharacter from './createCharacter';
 import CharactersList from './characterList';
 import CharacterDetails from './characterDetails';
 import Header from './header.js';
-import CreateCharacter from './createCharacter.js';
+
 import './frontEnd.css';
 
 class App extends Component {

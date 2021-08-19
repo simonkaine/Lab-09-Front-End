@@ -11,7 +11,7 @@ class Header extends Component {
                 </div>
                 <div className="links-box">
                     <NavLink exact to="/" className="home-link">Home</NavLink>
-                    <NavLink to="/characters" className="main-page-link">Add New Character</NavLink>
+                    <NavLink to="/createCharacter" className="main-page-link">Add New Character</NavLink>
                 </div>
             </header>
          );
