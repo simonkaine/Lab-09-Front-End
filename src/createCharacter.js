@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {createCharacters, getBreeds} from './fetch-utils';
 
 class CreateCharacter extends Component {
-    state = { id: 0, name: '', bad: false, species: '' }
+    state = { name: '', bad: false, species: '' }
 
     componentDidMount = async () => {
         // leave out character GetCharacter and update
@@ -22,7 +22,6 @@ class CreateCharacter extends Component {
 
         console.log(this.state.id)
         const newCharacterData = {
-            id: this.state.id,
             name: this.state.name,
             bad: this.state.bad, 
             species_id: this.getSpeciesId() 
