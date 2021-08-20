@@ -13,7 +13,7 @@ class CharacterList extends Component {
             <>
             <h1>List Of Characters</h1>
                 {this.state.characters.map((char) =>
-                    <div className="list-of-characters"> 
+                    <div key={char.id} className="list-of-characters"> 
                     <h3>
                         <Link to={`/characters/${char.id}`}>{char.name}</Link>
                     </h3>
