@@ -24,7 +24,6 @@ class CharacterDetails extends Component {
         e.preventDefault()
         // get the species_id from the list of breeds + enter it as value into new data set
         // gather up all my new species data from state
-        // use 
         console.log(this.state.id)
         const newCharacterData = {
             id: this.state.id,
