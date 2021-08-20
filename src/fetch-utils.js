@@ -41,3 +41,15 @@ export const createCharacters = async (charObject) => {
     const data = await resp.json();
     return data;
 };
+
+export const deleteCharacter = async (charObject) => {
+    const resp = await fetch(`${URL}/characters/${charObject.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(charObject),
+    });
+    const data = await resp.json();
+    return data;
+};

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { getCharacter, getBreeds, updateCharacter } from './fetch-utils';
+import { getCharacter, getBreeds, updateCharacter, deleteCharacter } from './fetch-utils';
 
 class CharacterDetails extends Component {
     state = { id: 0, name: '', bad: false, species: '' }
@@ -31,8 +31,19 @@ class CharacterDetails extends Component {
             bad: this.state.bad, 
             species_id: this.getSpeciesId() 
         };
-        console.log(newCharacterData)
         await updateCharacter(newCharacterData);
+    }
+
+    handleDeleteEvent = async (e) => {
+        e.preventDefault()
+        console.log(this.state.id)
+        const newCharacterData = {
+            id: this.state.id,
+            name: this.state.name,
+            bad: this.state.bad, 
+            species_id: this.getSpeciesId() 
+        };
+        await deleteCharacter(newCharacterData);
     }
 
     render() { 
@@ -74,6 +85,7 @@ class CharacterDetails extends Component {
                     </div>
 
                     <button onClick={this.handleClickEvent}>Submit!</button>
+                    <button onClick={this.handleDeleteEvent}>DELETE</button>
 
                 </form>
             </>
