@@ -33,7 +33,10 @@ class CreateCharacter extends Component {
     render() { 
         return ( 
             <>
-                <h1>{this.state.name}</h1>
+                <div className="details-create-header">
+                    <h1>Create A Character!</h1>
+                </div>
+                
 
                 <form>
 
@@ -67,8 +70,10 @@ class CreateCharacter extends Component {
                                 <option value="martian">Martian</option>
                             </select>
                     </div>
-
-                    <button onClick={this.handleClickEvent}>Submit!</button>
+                    <div className="button">
+                        <button onClick={this.handleClickEvent}>Submit!</button>
+                    </div>
+                    
 
                 </form>
             </>

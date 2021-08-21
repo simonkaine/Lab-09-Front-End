@@ -11,12 +11,15 @@ class CharacterList extends Component {
     render() { 
         return ( 
             <>
-            <h1>List Of Characters</h1>
+            <div className="list-header">
+                <h1>List Of Characters</h1>
+            </div>
+            
                 {this.state.characters.map((char) =>
                     <div key={char.id} className="list-of-characters"> 
-                    <h3>
-                        <Link to={`/characters/${char.id}`}>{char.name}</Link>
-                    </h3>
+                        <h3>
+                            <Link to={`/characters/${char.id}`}>{char.name}</Link>
+                        </h3>
                     </div>
                 )}
             </>

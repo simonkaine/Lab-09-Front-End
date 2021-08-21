@@ -49,7 +49,10 @@ class CharacterDetails extends Component {
     render() { 
         return ( 
             <>
-            <h1>{this.state.name}</h1>
+            <div className="details-create-header">
+                <h1>Character: {this.state.name}</h1>
+            </div>
+            
 
                 <form>
 
@@ -83,10 +86,11 @@ class CharacterDetails extends Component {
                                 <option value="martian">Martian</option>
                             </select>
                     </div>
-
-                    <button onClick={this.handleClickEvent}>Submit!</button>
-                    <button onClick={this.handleDeleteEvent}>DELETE</button>
-
+                    
+                    <div className="button">
+                        <button onClick={this.handleClickEvent}>Submit!</button>
+                        <button onClick={this.handleDeleteEvent}>DELETE</button>
+                    </div>
                 </form>
             </>
          );
