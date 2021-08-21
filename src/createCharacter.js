@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {createCharacters, getBreeds} from './fetch-utils';
 
 class CreateCharacter extends Component {
-    state = { id: 0, name: '', bad: false, species: '' }
+    state = { name: '', bad: false, species: 'human', speciesData: [] }
 
     componentDidMount = async () => {
         // leave out character GetCharacter and update
@@ -19,15 +19,13 @@ class CreateCharacter extends Component {
 
     handleClickEvent = async (e) => {
         e.preventDefault()
-
-        console.log(this.state.id)
         const newCharacterData = {
-            id: this.state.id,
             name: this.state.name,
             bad: this.state.bad, 
-            species_id: this.getSpeciesId() 
+            species_id: this.getSpeciesId()
         };
         console.log(newCharacterData)
+        console.log(this.state.species)
         await createCharacters(newCharacterData);
         this.props.history.push('/');
     }
@@ -35,7 +33,10 @@ class CreateCharacter extends Component {
     render() { 
         return ( 
             <>
-                <h1>{this.state.name}</h1>
+                <div className="details-create-header">
+                    <h1>Create A Character!</h1>
+                </div>
+                
 
                 <form>
 
@@ -69,8 +70,10 @@ class CreateCharacter extends Component {
                                 <option value="martian">Martian</option>
                             </select>
                     </div>
-
-                    <button onClick={this.handleClickEvent}>Submit!</button>
+                    <div className="button">
+                        <button onClick={this.handleClickEvent}>Submit!</button>
+                    </div>
+                    
 
                 </form>
             </>

@@ -7,7 +7,8 @@ class Header extends Component {
         return ( 
             <header>
                 <div className="consistent-header">
-                    <h1>HEADER!!!!</h1>
+                    <h1>SPACE PEEPS!</h1>
+                    <h2>Meet the peeps - Create your own peep!</h2>
                 </div>
                 <div className="links-box">
                     <NavLink exact to="/" className="home-link">Home</NavLink>
